@@ -1,24 +1,3 @@
-# mendeley-graph
+# Mendeley Graph
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Soon there should be a tool to represent links between articles / author from Mendely API. Still work in progress
