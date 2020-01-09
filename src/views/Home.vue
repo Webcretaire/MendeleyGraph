@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <button @click="loadDocs">Load documents</button>
+        <h3>Documents</h3>
+        <ul>
+            <li v-for="(doc, index) in docs" :key="index">{{ doc.title }}</li>
+        </ul>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+    import mendeley from "@/util/mendeley";
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'Home',
+        data: () => ({
+            docs: []
+        }),
+        methods: {
+            loadDocs() {
+                mendeley.listDocuments().then(response => this.docs = response.items);
+            }
+        },
+        mounted() {
+            if (!mendeley.isLoggedIn())
+                mendeley.login();
+        }
+    }
 </script>
+
